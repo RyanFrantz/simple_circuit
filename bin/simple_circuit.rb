@@ -37,7 +37,15 @@ Choice.options do
 end
 
 # TODO: add support for floats
-current = Choice.choices[:current] ? Choice.choices[:current].to_i : nil
+if Choice.choices[:current]
+    if Choice.choices[:current] =~ /\./
+        current = Choice.choices[:current].to_f
+    else
+        current = Choice.choices[:current].to_i
+    end
+else
+    current = nil
+end
 power = Choice.choices[:power] ? Choice.choices[:power].to_i : nil
 resistance = Choice.choices[:resistance] ? Choice.choices[:resistance].to_i : nil
 voltage = Choice.choices[:voltage] ? Choice.choices[:voltage].to_i : nil
