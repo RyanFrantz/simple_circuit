@@ -36,6 +36,7 @@ Choice.options do
     footer ""
 end
 
+# TODO: add support for floats
 current = Choice.choices[:current] ? Choice.choices[:current].to_i : nil
 power = Choice.choices[:power] ? Choice.choices[:power].to_i : nil
 resistance = Choice.choices[:resistance] ? Choice.choices[:resistance].to_i : nil

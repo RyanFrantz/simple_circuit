@@ -1,7 +1,9 @@
 #require "simple_circuit/version"
 
 # calculate various properties based on given data (voltage, current, resistance, power, energy)
-# TODO: errors should raise an exception
+# TODO:
+# 1. add support for floats
+# 2. errors should raise an exception
 
 class SimpleCircuit
     #attr_accessor :voltage, :current, :resistance
