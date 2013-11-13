@@ -54,6 +54,44 @@ class TestSimpleCircuit < Test::Unit::TestCase
         circuit.voltage = 4000.1234
         assert_equal( 4000.1234, circuit.voltage )
     end
+
+    # test calculations
+    ## current
+    def test_calc_current_with_voltage_and_resistance
+        circuit = SimpleCircuit.new
+        circuit.voltage = 100
+        circuit.resistance = 100
+        assert_equal( 1, circuit.current )
+    end
+
+    ## power
+    def test_calc_power_with_current_and_voltage
+        circuit = SimpleCircuit.new
+        circuit.current = 2
+        circuit.voltage = 100
+        assert_equal( 200, circuit.power )
+    end
+
+    def test_calc_power_with_current_and_resistance
+        circuit = SimpleCircuit.new
+        circuit.current = 2
+        circuit.resistance = 2000
+        assert_equal( 8000, circuit.power )
+    end
+
+    def test_calc_power_with_voltage_and_resistance
+        circuit = SimpleCircuit.new
+        circuit.voltage = 100
+        circuit.resistance = 2000
+        assert_equal( 5, circuit.power )
+    end
+
+    ## resistance
+    def test_calc_resistance_with_voltage_and_current
+        circuit = SimpleCircuit.new
+        circuit.voltage = 50
+        circuit.current = 2
+        assert_equal( 25, circuit.resistance )
+    end
+
 end
-
-
